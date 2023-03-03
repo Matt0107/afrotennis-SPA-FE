@@ -24,10 +24,10 @@ const Game = () => {
         },
         { withCredentials: true }
       );
-      alert("Partie ajoutée avec succès.");
+      alert("Success! Game session added");
     } catch (error) {
       console.error(error);
-      alert("Une erreur est survenue lors de l'ajout de la partie.");
+      alert("Something wrong happened");
     }
   };
 
@@ -37,10 +37,10 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Enregistrer une partie</h1>
+      <h1>Add a game</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="player">Joueur :</label>
+          <label htmlFor="player">Player :</label>
           <input
             type="text"
             id="player"
@@ -51,7 +51,7 @@ const Game = () => {
           />
         </div>
         <div>
-          <label htmlFor="form">Forme :</label>
+          <label htmlFor="form">Mood :</label>
           <select
             id="form"
             name="form"
@@ -59,15 +59,15 @@ const Game = () => {
             onChange={handleChange}
             required
           >
-            <option value="">Choisir une option</option>
-            <option value="Blessé">Blessé</option>
-            <option value="Fatigué">Fatigué</option>
-            <option value="Bien">Bien</option>
-            <option value="Excellente forme">Excellente forme</option>
+            <option value="">Choose an option</option>
+            <option value="Injured">Injured</option>
+            <option value="Tired">Tired</option>
+            <option value="Good">Good</option>
+            <option value="Excellent">Excellent</option>
           </select>
         </div>
         <div>
-          <label htmlFor="surface">Type de surface :</label>
+          <label htmlFor="surface">Surface :</label>
           <select
             id="surface"
             name="surface"
@@ -75,11 +75,11 @@ const Game = () => {
             onChange={handleChange}
             required
           >
-            <option value="">Choisir une option</option>
-            <option value="Dur">Dur</option>
-            <option value="Gazon">Gazon</option>
-            <option value="Terre-battue">Terre battue</option>
-            <option value="Tapis">Tapis</option>
+            <option value="">Choose</option>
+            <option value="Hard Court">Hard Court</option>
+            <option value="Grass">Grass</option>
+            <option value="Clay">Clay</option>
+            <option value="Carpet">Carpet</option>
           </select>
         </div>
         <div>
@@ -94,7 +94,7 @@ const Game = () => {
           />
         </div>
         <div>
-          <label htmlFor="result">Résultat :</label>
+          <label htmlFor="result">Result :</label>
           <select
             id="result"
             name="result"
@@ -102,12 +102,12 @@ const Game = () => {
             onChange={handleChange}
             required
           >
-            <option value="">Choisir une option</option>
-            <option value="gagné">Gagné</option>
-            <option value="perdu">Perdu</option>
+            <option value="">Choose</option>
+            <option value="won">Won</option>
+            <option value="lost">Lost</option>
           </select>
         </div>
-        <button type="submit">Enregistrer</button>
+        <button type="submit">Save Game</button>
       </form>
     </div>
   );

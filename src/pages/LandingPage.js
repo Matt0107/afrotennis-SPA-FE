@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <div>
-      <h1>Bienvenue sur notre site de tennis !</h1>
+      <h1>Welcome on Afrotennis !</h1>
       <p>
-        Ici, vous pouvez créer un profil joueur, rechercher des partenaires et
-        organiser des matchs.
+        Join the first African Tennis Club and get in touch with tennis players
+        all
       </p>
-      <Link to="/signup">S'inscrire</Link>
-      <Link to="/signin">Se connecter</Link>
+      <Link to="/signup">Sign up</Link>
+      <Link to="/signin">Sign in</Link>
     </div>
   );
 };

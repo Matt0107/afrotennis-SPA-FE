@@ -12,12 +12,15 @@ const SignIn = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/signin", { email, password });
+      const res = await axios.post("http://localhost:5005/signin", {
+        email,
+        password,
+      });
       // handle successful login
+      navigate("/home");
     } catch (err) {
       setError(err.response.data.message);
     }
-    navigate("/home");
   };
 
   return (

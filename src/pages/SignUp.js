@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState(undefined);
   const [formState, setFormState] = useState({
     username: "",
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
 
   const handleInputChange = (event) => {
     setFormState({
@@ -19,18 +21,26 @@ const SignUpPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-      const response = await axios.post("/api/auth/signup", formState);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
+    console.log(formState);
+    if (!formState.username || !formState.email || !formState.password) {
+      setError("Please fill in all fields");
+      return;
     }
-    navigate("/home");
+    try {
+      const response = await axios.post(
+        "http://localhost:5005/signup",
+        formState
+      );
+      console.log(response.data);
+      navigate("/home");
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
   };
 
   return (
     <div>
+      {error && <p>{error}</p>}
       <h2>Create an account</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -63,12 +73,13 @@ const SignUpPage = () => {
             name="password"
             value={formState.password}
             onChange={handleInputChange}
-            // required
-            // minLength={7}
+            required
+            minLength={7}
             // pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]{7,}$/"
             // title="Le mot de passe doit contenir au moins 7 caractères, une majuscule, un caractère spécial et un chiffre"
           />
         </div>
+        <div>{errorMessage && errorMessage}</div>
         <button type="submit">Sign</button>
       </form>
     </div>
