@@ -1,13 +1,16 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const { storeToken, verifyStoredToken } = useContext(AuthContext);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -16,8 +19,12 @@ const SignIn = () => {
         email,
         password,
       });
-      // handle successful login
-      navigate("/home");
+      const token = res.data.authToken;
+      storeToken(token);
+      verifyStoredToken().then(() => {
+        // handle successful login
+        navigate("/home");
+      });
     } catch (err) {
       setError(err.response.data.message);
     }

@@ -1,3 +1,93 @@
 body {
   margin: 0;
 }
+
+/* ******Landing Page Styling****** */
+/* Section d'arrière-plan avec images qui défilent */
+.background-section {
+  position: relative;
+  height: 100vh;
+}
+
+.lp-background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.lp-background-images img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  animation: slideshow 20s linear infinite;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.lp-centered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.lp-centered-content img {
+  width: 30%;
+}
+
+.lp-centered-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.lp-centered-content .lp-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp-centered-content .lp-buttons button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lp-centered-content .lp-buttons button:hover {
+  background-color: #0062cc;
+}
