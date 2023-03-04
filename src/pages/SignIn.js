@@ -31,31 +31,29 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSignIn}>
-        {error && <div>{error}</div>}
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
-  );
+    <div className="parent-container">
+    <form onSubmit={handleSignIn}>
+      {error && <div>{error}</div>}
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <label htmlFor="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+);
 };
 
 export default SignIn;

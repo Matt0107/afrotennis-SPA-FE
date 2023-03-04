@@ -6,6 +6,8 @@ const SignUpPage = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [formState, setFormState] = useState({
+    firstName : "",
+    lastName : "",
     username: "",
     email: "",
     password: "",
@@ -22,7 +24,7 @@ const SignUpPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-    if (!formState.username || !formState.email || !formState.password) {
+    if (!formState.firstName ||!formState.username ||!formState.lastName || !formState.email || !formState.password) {
       setError("Please fill in all fields");
       return;
     }
@@ -39,10 +41,29 @@ const SignUpPage = () => {
   };
 
   return (
-    <div>
+    <div className="parent-container">
       {error && <p>{error}</p>}
-      <h2>Create an account</h2>
       <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formState.firstName}
+            onChange={handleInputChange}
+            required
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formState.lastName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -80,7 +101,7 @@ const SignUpPage = () => {
           />
         </div>
         <div>{errorMessage && errorMessage}</div>
-        <button type="submit">Sign</button>
+        <button type="submit">Create an account</button>
       </form>
     </div>
   );

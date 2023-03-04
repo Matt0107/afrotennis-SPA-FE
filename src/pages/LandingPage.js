@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="landing-page">
         <div className="lp-background-images">
           <img src="./assets/pic1.jpg" alt="Background" />
