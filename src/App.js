@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import Buddy from "./pages/Buddy";
+import Association from "./pages/Association";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/buddy" element={<Buddy />} />
+          <Route path="/association" element={<Association />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Buddy = () => {
+const Results = () => {
     return (
         <div>
-            <h1>Buddy</h1>
+            
         </div>
     );
 };
 
-export default Buddy;
+export default Results;
