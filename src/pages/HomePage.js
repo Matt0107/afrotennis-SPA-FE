@@ -2,14 +2,14 @@ import React from "react";
 import { AuthContext } from "../context/auth.context";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import NavBarHome from "../components/NavBarHome";
 
 const HomePage = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
   return (
     <div>
-      <h1>Welcome, {user.username} </h1>
-
+      <NavBarHome/>
       <div className="home-container">
         <div className="home-section">
           <img src="./assets/profile.png" alt="My Profile" />

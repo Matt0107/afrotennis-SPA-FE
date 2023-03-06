@@ -43,7 +43,7 @@ const SignUpPage = () => {
   return (
     <div className="parent-container">
       {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
+      <form className="formsignup" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name</label>
           <input

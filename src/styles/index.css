@@ -2,6 +2,46 @@ body {
   margin: 0;
 }
 
+/* ******NavBarHome Styling****** */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logonav {
+  width: 5%;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout-btn {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+}
+
 /* ******Landing Page Styling****** */
 /* Section d'arrière-plan avec images qui défilent */
 .background-section {
@@ -25,29 +65,19 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  animation: slideshow 20s linear infinite;
+  animation: fade 15s linear infinite;
 }
 
-@keyframes slideshow {
-  0% {
-    opacity: 0;
-  }
+.lp-background-images img:nth-child(1) { animation-delay: 0s; }
+.lp-background-images img:nth-child(2) { animation-delay: 5s; }
+.lp-background-images img:nth-child(3) { animation-delay: 10s; }
 
-  5% {
-    opacity: 1;
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
+@keyframes fade {
+  0%      { opacity: 0; }  /** fadeIn beginnt            **/
+	11.11%  { opacity: 1; }  /** Bild steht                **/
+	33.33%  { opacity: 1; }  /** Bild bleibt zwei Sekunden **/
+	44.44%  { opacity: 0; }  /** fadeOut beendet           **/
+	100%    { opacity: 0; }
 }
 
 .lp-centered-content {
@@ -91,10 +121,12 @@ body {
 .lp-centered-content .lp-buttons button:hover {
   background-color: #0062cc;
 }
+
 .lp-buttons button a {
   text-decoration: none;
   color: #fff;
 }
+
 /* ******SignIn/Up Page Styling****** */
 .parent-container {
   display: flex;
@@ -107,12 +139,23 @@ body {
   opacity: 0.9;
 }
 
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 20px;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.formsignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 2%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -171,7 +214,7 @@ button:hover {
   margin: 1rem;
 }
 
-.home-section:hover{
+.home-section:hover {
   transform: scale(1.08);
   transition: transform 0.3s ease-in-out;
 }
@@ -209,3 +252,22 @@ button:hover {
   text-decoration: none;
   color: #fff;
 }
+
+/* ******Profile Page Styling****** */
+.performance {
+  background-color: #f1f1f1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-game{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 30%;
+}
+

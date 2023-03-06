@@ -7,7 +7,7 @@ const Game = () => {
     form: "",
     surface: "",
     score: "",
-    win: true,
+    result: "",
   });
 
   const handleSubmit = async (e) => {
@@ -16,11 +16,11 @@ const Game = () => {
       await axios.post(
         "/auth/addgame",
         {
-          player: form.player,
+          // player: form.player,
           form: form.form,
           surface: form.surface,
           score: form.score,
-          win: form.win,
+          result: form.result,
         },
         { withCredentials: true }
       );
@@ -38,9 +38,9 @@ const Game = () => {
   return (
     <div>
       <h1>Add a game</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-game">
         <div>
-          <label htmlFor="player">Player :</label>
+          {/* <label htmlFor="player">Player :</label>
           <input
             type="text"
             id="player"
@@ -48,7 +48,7 @@ const Game = () => {
             value={form.player}
             onChange={handleChange}
             required
-          />
+          /> */}
         </div>
         <div>
           <label htmlFor="form">Mood :</label>

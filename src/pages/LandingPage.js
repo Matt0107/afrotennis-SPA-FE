@@ -6,9 +6,9 @@ const LandingPage = () => {
     <div>
       <div className="landing-page">
         <div className="lp-background-images">
-          <img src="./assets/pic1.jpg" alt="Background" />
-          <img src="./assets/pic4.jpg" alt="Background" />
           <img src="./assets/pic5.jpg" alt="Background" />
+          <img src="./assets/pic3.jpg" alt="Background" />
+          <img src="./assets/pic2.jpg" alt="Background" />
         </div>
         <div className="lp-centered-content">
           <img src="./assets/Afrotennis_logo_white.png" alt="Logo" />
