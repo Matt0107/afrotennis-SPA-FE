@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Game = () => {
   const [form, setForm] = useState({
-    player: "",
+    opponent: "",
     form: "",
     surface: "",
     score: "",
@@ -16,7 +16,7 @@ const Game = () => {
       await axios.post(
         "/auth/addgame",
         {
-          // player: form.player,
+          opponent: form.opponent,
           form: form.form,
           surface: form.surface,
           score: form.score,
@@ -40,15 +40,15 @@ const Game = () => {
       <h1>Add a game</h1>
       <form onSubmit={handleSubmit} className="form-game">
         <div>
-          {/* <label htmlFor="player">Player :</label>
+          <label htmlFor="player">Opponent :</label>
           <input
             type="text"
-            id="player"
-            name="player"
-            value={form.player}
+            id="opponent"
+            name="opponent"
+            value={form.opponent}
             onChange={handleChange}
             required
-          /> */}
+          />
         </div>
         <div>
           <label htmlFor="form">Mood :</label>

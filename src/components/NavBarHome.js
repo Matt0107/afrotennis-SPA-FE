@@ -1,16 +1,11 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from "react-router-dom";
+import Menubtn from "./Menubtn";
 
 const NavBarHome = () => {
-  const navigate = useNavigate();
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   console.log(user);
-  function handleLogOut(){
-    logoutUser()
-    navigate("/")
-  }
   return (
     <div className="navbar">
       <img
@@ -19,7 +14,7 @@ const NavBarHome = () => {
         className="logonav"
       />
       {user&&<h1>Welcome, {user.username} </h1>}
-      <button onClick={handleLogOut} className="logout-btn">Log Out</button>
+      <Menubtn/>
     </div>
   );
 };
