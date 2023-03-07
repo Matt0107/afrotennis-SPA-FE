@@ -295,6 +295,7 @@ button:hover {
 /* ******Profile Page Styling****** */
 #main-info{
   display: flex;
+  padding: 20px;
 }
 #player-info{
   width: 50%;

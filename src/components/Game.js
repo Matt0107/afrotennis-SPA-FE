@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Game = () => {
+const Game = ({user}) => {
   const [form, setForm] = useState({
     opponent: "",
     form: "",
@@ -9,20 +9,20 @@ const Game = () => {
     score: "",
     result: "",
   });
-
+  console.log(user)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post(
-        "/auth/addgame",
+        "http://localhost:5005/addgame",
         {
           opponent: form.opponent,
           form: form.form,
           surface: form.surface,
           score: form.score,
           result: form.result,
-        },
-        { withCredentials: true }
+          user: user,
+        }
       );
       alert("Success! Game session added");
     } catch (error) {
