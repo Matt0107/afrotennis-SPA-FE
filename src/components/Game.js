@@ -24,6 +24,7 @@ const Game = ({user}) => {
           user: user,
         }
       );
+
       alert("Success! Game session added");
     } catch (error) {
       console.error(error);
@@ -37,7 +38,7 @@ const Game = ({user}) => {
 
   return (
     <div>
-      <h1>Add a game</h1>
+      <h1>Add A Game</h1>
       <form onSubmit={handleSubmit} className="form-game">
         <div>
           <label htmlFor="player">Opponent :</label>
@@ -103,8 +104,8 @@ const Game = ({user}) => {
             required
           >
             <option value="">Choose</option>
-            <option value="won">Won</option>
-            <option value="lost">Lost</option>
+            <option value="Won">Won</option>
+            <option value="Lost">Lost</option>
           </select>
         </div>
         <button type="submit">Save Game</button>

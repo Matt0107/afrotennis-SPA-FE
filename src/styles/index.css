@@ -296,18 +296,94 @@ button:hover {
 #main-info{
   display: flex;
   padding: 20px;
+  background-color: rgb(206, 236, 255);
 }
 #player-info{
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f5f3f3;
+  border-radius: 10px;
+}
+
+.left-row{
+  color: #0077cc;
 }
 #player-info button a{
 text-decoration: none;
 color: white;
 }
 #player-info img{
-width: 20%;
+width: 150px;
+height: 150px;
+object-fit: cover;
+border-radius: 25%;
+margin-bottom: 10px;
 }
+#player-info table {
+  margin-bottom: 10px;
+}
+
+#player-info td {
+  padding: 5px;
+  font-weight: bold;
+}
+
 #game{
   width: 50%;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f5f3f3;
+  border-radius: 10px;
+}
+#game h1{
+ text-align: center;
+}
+
+#stats{
+  margin: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #101010;
+  color: white;
+}
+.delete-btn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.delete-btn:hover {
+  background-color: #a92f27;
+
 }
 

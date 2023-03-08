@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import Game from "../components/Game"
+import GameTable from "../components/GameTable"
 
 const Profile = () => {
   const [userDB, setUserDB] = useState(null);
@@ -36,31 +37,31 @@ console.log(user)
           <table>
             <tbody>
               <tr>
-                <td>First Name</td>
+                <td className="left-row">First Name</td>
                 <td>{userDB.firstName}</td>
               </tr>
               <tr>
-                <td>Last Name</td>
+                <td className="left-row">Last Name</td>
                 <td>{userDB.lastName}</td>
               </tr>
               <tr>
-                <td>Age</td>
+                <td className="left-row">Age</td>
                 <td>{userDB.age}</td>
               </tr>
               <tr>
-                <td>Plays</td>
+                <td className="left-row">Plays</td>
                 <td>{userDB.plays}</td>
               </tr>
               <tr>
-                <td>Backhand</td>
+                <td className="left-row">Backhand</td>
                 <td>{userDB.backhand}</td>
               </tr>
               <tr>
-                <td>City</td>
+                <td className="left-row">City</td>
                 <td>{userDB.city}</td>
               </tr>
               <tr>
-                <td>Country</td>
+                <td className="left-row">Country</td>
                 <td>{userDB.country}</td>
               </tr>
               <tr></tr>
@@ -75,7 +76,10 @@ console.log(user)
           <Game user={user}/>
         </section>
       </div>
-      <h1>Retro</h1>
+      <section id="stats">
+      <h1>My Games</h1>
+      <GameTable/>
+      </section>
     </div>
   );
 };
