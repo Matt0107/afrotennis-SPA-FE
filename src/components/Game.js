@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Game = ({user}) => {
+const Game = ({user, onAddGame}) => {
   const [form, setForm] = useState({
     opponent: "",
     form: "",
@@ -13,7 +13,8 @@ const Game = ({user}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
+      const storedToken = localStorage.getItem("authToken");
+      const response = await axios.post(
         "http://localhost:5005/addgame",
         {
           opponent: form.opponent,
@@ -22,9 +23,10 @@ const Game = ({user}) => {
           score: form.score,
           result: form.result,
           user: user,
-        }
-      );
-
+        },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+        );
+      onAddGame(response.data);   
       alert("Success! Game session added");
     } catch (error) {
       console.error(error);

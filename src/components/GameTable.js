@@ -1,39 +1,25 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
 
-const GameTable = () => {
-  const [games, setGames] = useState([]);
-  const { user } = useContext(AuthContext);
+const GameTable = ({ games, setGames }) => {
+  const [token, setToken] = useState(null);
 
- function getAllGames(){
-    axios
-    .get(`http://localhost:5005/user/${user._id}/games`)
-    .then((response) => {
-      setGames(response.data.games);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
   useEffect(() => {
-    getAllGames()
+    const storedToken = localStorage.getItem("authToken");
+    setToken(storedToken);
   }, []);
-  const handleDelete = (id) => {
-    console.log(id)
-    axios
-      .delete(`http://localhost:5005/user/${user._id}/games/${id}`)
-      .then((response) => {
-       getAllGames();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
-  if (!games) {
-    return <div>Loading...</div>;
+const handleDelete = async (id) => {
+  try {
+    const response = await axios.delete(
+      `http://localhost:5005/games/${id}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    setGames(prevGames => prevGames.filter((game) => game._id !== id));
+  } catch (error) {
+    console.error(error);
   }
+};
   return (
     <div>
       <table>

@@ -4,13 +4,14 @@ import NavBarHome from "../components/NavBarHome";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import Game from "../components/Game"
-import GameTable from "../components/GameTable"
+import Game from "../components/Game";
+import GameTable from "../components/GameTable";
 
 const Profile = () => {
   const [userDB, setUserDB] = useState(null);
+  const [games, setGames] = useState([]);
   const { user } = useContext(AuthContext);
-console.log(user)
+  console.log(user);
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -19,11 +20,20 @@ console.log(user)
       })
       .then((response) => {
         setUserDB(response.data);
+        setGames(response.data.games);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [user]);
+  const handleAddGame = (data) => {
+    console.log(data.user.games);
+    setGames(data.user.games);
+  };
+  const handleGameDeleted = (gameId) => {
+    setGames((prevGames) => prevGames.filter((game) => game._id !== gameId));
+  };
+  
 
   if (!userDB) {
     return <div>Loading...</div>;
@@ -73,12 +83,12 @@ console.log(user)
         </section>
         <section id="game">
           <h1>Graph</h1>
-          <Game user={user}/>
+          <Game user={user} onAddGame={handleAddGame} />
         </section>
       </div>
       <section id="stats">
-      <h1>My Games</h1>
-      <GameTable/>
+        <h1>My Games</h1>
+        <GameTable games={games} setGames={setGames} onGameDeleted={handleGameDeleted}/>
       </section>
     </div>
   );
