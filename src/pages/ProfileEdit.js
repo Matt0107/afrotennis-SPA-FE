@@ -20,10 +20,15 @@ const ProfileEdit = (props) => {
   const { userId } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
+    if (user){
     axios
-      .get(`http://localhost:5005/users/${user._id}`)
+      .get(`http://localhost:5005/users/${user._id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         const oneUser = response.data;
+        console.log(response.data)
         setFirstName(oneUser.firstName);
         setLastName(oneUser.lastName);
         setUsername(oneUser.username);
@@ -33,7 +38,7 @@ const ProfileEdit = (props) => {
         setCity(oneUser.city);
         setCountry(oneUser.country);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error));}
   }, [user]);
   const handleFormSubmit = (e) => {
     e.preventDefault();

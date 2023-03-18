@@ -13,7 +13,7 @@ const NavBarHome = () => {
         alt="logo"
         className="logonav"
       />
-      {<h1>Welcome, {user.firstName} </h1>}
+      {<h1>Welcome, {user?.firstName} </h1>}
       <Menubtn/>
     </div>
   );

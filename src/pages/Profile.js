@@ -14,6 +14,7 @@ const Profile = () => {
   console.log(user);
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
+    if (user){
     axios
       .get(`http://localhost:5005/users/${user._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -24,7 +25,7 @@ const Profile = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
+      });}
   }, [user]);
   const handleAddGame = (data) => {
     console.log(data.user.games);
@@ -32,6 +33,7 @@ const Profile = () => {
   };
   const handleGameDeleted = (gameId) => {
     setGames((prevGames) => prevGames.filter((game) => game._id !== gameId));
+    console.log(setGames)
   };
   
 

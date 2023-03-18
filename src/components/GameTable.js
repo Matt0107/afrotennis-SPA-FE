@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../context/auth.context";
 
 const GameTable = ({ games, setGames }) => {
   const [token, setToken] = useState(null);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
@@ -11,8 +13,8 @@ const GameTable = ({ games, setGames }) => {
 
 const handleDelete = async (id) => {
   try {
-    const response = await axios.delete(
-      `http://localhost:5005/games/${id}`,
+    await axios.delete(
+      `http://localhost:5005/games/${user._id}/${id}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setGames(prevGames => prevGames.filter((game) => game._id !== id));

@@ -104,12 +104,12 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  animation: fade 15s linear infinite;
+  animation: fade 12s linear infinite;
 }
 
 .lp-background-images img:nth-child(1) { animation-delay: 0s; }
-.lp-background-images img:nth-child(2) { animation-delay: 5s; }
-.lp-background-images img:nth-child(3) { animation-delay: 10s; }
+.lp-background-images img:nth-child(2) { animation-delay: 4s; }
+.lp-background-images img:nth-child(3) { animation-delay: 8s; }
 
 @keyframes fade {
   0%      { opacity: 0; }  /** fadeIn beginnt            **/
