@@ -12,11 +12,17 @@ const LandingPage = () => {
         </div>
         <div className="lp-centered-content">
           <img src="./assets/Afrotennis_logo_white.png" alt="Logo" />
-          <h1>Join the first African Tennis Club and get in touch with tennis players
-        all over the world</h1>
+          <h1>
+            Join the first African Tennis Club and get in touch with tennis
+            players all over the world
+          </h1>
           <div className="lp-buttons">
-            <button><Link to="/signup">Sign up</Link></button>
-            <button><Link to="/signin">Sign in</Link></button>
+            <button>
+              <Link to="/signup">Sign up</Link>
+            </button>
+            <button>
+              <Link to="/signin">Log in</Link>
+            </button>
           </div>
         </div>
       </div>

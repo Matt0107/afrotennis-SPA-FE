@@ -1,11 +1,14 @@
 import React from 'react';
 import NavBarHome from '../components/NavBarHome';
+import SearchPlayer from '../components/SearchPlayer';
+
 
 const Buddy = () => {
     return (
         <div>
             <NavBarHome/>
-            <h1>buddy page</h1>
+            <h1>Search and Find your dream Partner</h1>
+            <SearchPlayer/>
         </div>
     );
 };

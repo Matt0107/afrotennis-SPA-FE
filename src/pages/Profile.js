@@ -49,6 +49,10 @@ const Profile = () => {
           <table>
             <tbody>
               <tr>
+                <td className="left-row">Username</td>
+                <td>{userDB.username}</td>
+              </tr>
+              <tr>
                 <td className="left-row">First Name</td>
                 <td>{userDB.firstName}</td>
               </tr>
